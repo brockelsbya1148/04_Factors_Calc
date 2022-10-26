@@ -22,12 +22,12 @@ def statement_generator(text, decoration):
 def instructions():
 
     statement_generator("Instructions / Information", "=")
+    print("Please enter an integer that is between 1 and 200")
     print()
-    print("Please choose a data type (image / text / integer)")
+    print("This program calculates the factors of this integer and displays them on screen")
+    print("It will also display whether the integer is a prime number or perfect square")
     print()
-    print("This program asumes that images are being represented in 24 bit colour (ie: 24 bits per pixel). For text, we asume that ascii encoding is being used (8 bits per character).")
-    print()
-    print("Complete as many calculations as necessary, pressing <enter> at the end of each calculation or any key to quit.")
+    print("Complete as many calculations as necessary, pressing <enter> at the end of each calculation or any key to quit")
     print()
     return ""
 
@@ -38,7 +38,7 @@ def num_check(question):
     valid = False
     while not valid:
 
-        error = "Please enter a number that is more than 0 and less than 201"
+        error = "Please enter an integer that is more than 0 and less than 201"
 
         try:
         
@@ -59,6 +59,7 @@ def num_check(question):
 
         except ValueError:
             print(error)
+            print()
 
 
 # Gets factors, returns a sorted list
@@ -69,7 +70,6 @@ def get_factors(to_factor):
 
     # find factors...
     for item in range(1, to_factor + 1):
-        print ("Loop #", item)
         if to_factor % item == 0:
             my_list.append(item)
             # my_list.append(to_factor)
@@ -80,11 +80,7 @@ def get_factors(to_factor):
     # my_list_len = len(my_list)
 
     # print the sorted list
-    print()
-    print("The Factors of {} are:".format(to_factor))
-    print(my_list)
     return my_list
-    print()
 
 
 
@@ -128,14 +124,13 @@ while keep_going == "":
 
     # Generate heading...
     if var_to_factor == 1:
-        heading = "One is special..."
+        heading = "One is special"
 
     else:
         heading = "Factors of {}".format(var_to_factor)
         
     # output factors and comment
     statement_generator(heading, "*")
-    print()
     print(factor_list)
     print(comment)
 
